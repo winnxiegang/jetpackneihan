@@ -1,5 +1,6 @@
 package com.jiutong.base.http
 
+import com.neihanjetpack.data.entity.result.NeiHanResult
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -23,14 +24,14 @@ interface ApiService {
         /**
          * 接口地址
          */
-        val API_ADDRESS = "111"
+        val API_ADDRESS = "https://api.apiopen.top/getJoke/"
     }
 
     /**
      * 获取短信验证码，或者校验图形验证码
      */
-    @POST("message/sms/send")
-    fun getSMSCode(@Body jCheckGraphCodeEntity: RequestBody): Observable<String>
+    @GET("?count=2")
+    fun getData(@Query("page") page: String, @Query("type") type: String): Observable<NeiHanResult>
 
 }
 

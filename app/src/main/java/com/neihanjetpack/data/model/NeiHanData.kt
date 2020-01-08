@@ -1,5 +1,8 @@
 package com.neihanjetpack.data.model
 
+import com.google.gson.annotations.Expose
+import com.neihanjetpack.base.entity.BaseEntity
+
 
 /**
  *
@@ -7,4 +10,4 @@ package com.neihanjetpack.data.model
  * @CreateDate:     2020/1/8
  * @Description:
  */
-class NeiHanData(val page: Int,  val type: String)
+class NeiHanData(@Expose val page: Int, @Expose val type: String) : BaseEntity()

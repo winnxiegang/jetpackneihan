@@ -13,7 +13,6 @@ import com.neihanjetpack.MyApplication
  */
 
 object ToastUtil {
-    var mToast: Toast? = null
     fun toast(resId: Int) {
         toast(null, resId, Toast.LENGTH_SHORT, false)
     }
@@ -64,7 +63,7 @@ object ToastUtil {
      * @param isCenter
      */
     private fun toast(text: String?, resId: Int, duration: Int, isCenter: Boolean) {
-
+        var mToast: Toast? = null
         if (mToast != null) {
             return
         }

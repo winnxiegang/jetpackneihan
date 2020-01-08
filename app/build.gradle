@@ -41,7 +41,7 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
     api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttploggingVersion"
     api "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
-
+    api "com.trello.rxlifecycle2:rxlifecycle-components:${rx_lifecycle_version}"
     // butterKnife
     api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVwesion"
     implementation 'androidx.appcompat:appcompat:1.1.0'

@@ -13,7 +13,7 @@ import com.neihanjetpack.base.entity.BaseEntity
 open class BaseResult : BaseEntity() {
     companion object {
         fun isSuccess(code: Int): Boolean {
-            return code == 0
+            return code == 200
         }
     }
 
@@ -28,10 +28,10 @@ open class BaseResult : BaseEntity() {
      * code : 0  成功，其余失败
      */
     fun isSuccess(): Boolean {
-        return code == 0
+        return code == 200
     }
 
     fun isError(): Boolean {
-        return code != 0
+        return code != 200
     }
 }

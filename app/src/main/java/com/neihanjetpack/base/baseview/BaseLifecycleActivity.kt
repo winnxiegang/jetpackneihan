@@ -7,8 +7,9 @@ import androidx.lifecycle.*
 import com.neihanjetpack.MyApplication
 import com.neihanjetpack.R
 import com.neihanjetpack.base.utils.LogUtils
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
-open class BaseLifecycleActivity : AppCompatActivity(), LifecycleOwner {
+open class BaseLifecycleActivity : RxAppCompatActivity(), LifecycleOwner {
     private lateinit var mLifecycleRegistry: LifecycleRegistry
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

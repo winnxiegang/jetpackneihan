@@ -34,8 +34,7 @@ ext{
     rxjavaVersion = '2.0.1'
     rxandroidVersion = '2.0.1'
     rxbindingVersion = '2.0.0'
-
-
+    rx_lifecycle_version = '2.2.0'
     constraintVersion = '1.1.2'
     butterknifeVwesion = '10.0.0'
     rxandroidVersion = '2.0.1'
