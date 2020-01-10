@@ -9,5 +9,5 @@ import com.neihanjetpack.base.entity.BaseEntity
  * @CreateDate:     2019/8/2
  * @Description: 所有基本数据DataBing的适配器
  */
-class MyBaseDataBingAdapter<R : BaseEntity>(layout: Int, listIdClick: MutableList<Int>? = null)
+class MyBaseDataBingAdapter<R : Any>(layout: Int, listIdClick: MutableList<Int>? = null)
     : DataBindAdapter<R>(layout, listIdClick)

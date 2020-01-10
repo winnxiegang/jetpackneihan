@@ -3,4 +3,23 @@
     <color name="colorPrimary">#FF7817</color>
     <color name="colorPrimaryDark">#FF7817</color>
     <color name="colorAccent">#FF7817</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <!--固定颜色-->
+    <color name="black_202020">#202020</color>
+    <color name="black_353535">#353535</color>
+    <color name="black_2E2E2E">#2E2E2E</color>
+    <color name="grey_3A3A3A">#3A3A3A</color>
+    <color name="grey_D3D3D3">#D3D3D3</color>
+    <color name="black_888888">#888888</color>
+    <color name="grey_979797">#979797</color>
+    <color name="grey_EBEBEB">#EBEBEB</color>
+    <color name="grey_D8D8D8">#D8D8D8</color>
+    <color name="grey_E9E9E9">#E9E9E9</color>
+    <color name="gray_ADADAD">#ADADAD</color>
+
+    <color name="blue_0062DE">#0062DE</color>
+    <color name="color_999999">#ff999999</color>
+    <color name="color_333333">#ff333333</color>
+    <color name="color_ff333333">#FF333333</color>
+    <color name="color_ff999999">#FF999999</color>
 </resources>

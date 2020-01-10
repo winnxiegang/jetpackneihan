@@ -74,7 +74,7 @@ object ToastUtil {
         if (isCenter) {
             mToast?.setGravity(Gravity.CENTER, 0, 0)
         }
-        hookToast(mToast!!)
+     //   hookToast(mToast!!)
         if (UIUtil.isRunMainThread) {
             mToast?.show()
             mToast = null

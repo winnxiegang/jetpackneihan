@@ -1,24 +1,16 @@
 package com.neihanjetpack
 
 import android.os.Bundle
-import com.neihanjetpack.base.adapter.MyBaseDataBingAdapter
+import com.google.android.material.tabs.TabLayoutMediator
+import com.jiutong.base.adapter.BaseFragmentStateAdapter
 import com.neihanjetpack.base.baseview.BaseActivity
-import com.neihanjetpack.base.http.ApiClient
-import com.neihanjetpack.base.http.RxTransformer
-import com.neihanjetpack.base.utils.RecyclerViewUtils
-import com.neihanjetpack.data.entity.result.NeiHanResult
-import com.neihanjetpack.data.model.NeiHanData
 import com.neihanjetpack.databinding.ActivityMainBinding
-import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener
-import com.trello.rxlifecycle2.android.ActivityEvent
+import com.neihanjetpack.fragmrent.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<ActivityMainBinding>(), OnRefreshListener, OnLoadMoreListener {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    private val baseFragmentStateAdapter by lazy { BaseFragmentStateAdapter(this) }
 
-    private val myBaseDataBingAdapter
-            by lazy { MyBaseDataBingAdapter<NeiHanResult.ResultList>(R.layout.activity_neihan_list_item) }
 
     override fun getContentLayoutId(): Int {
         return R.layout.activity_main
@@ -28,27 +20,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), OnRefreshListener, OnL
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        getBindingView().data = NeiHanData(1, "文字")
-        RecyclerViewUtils.initRecyclerView(mRecyclerView, myBaseDataBingAdapter)
-        mRefreshLayout.setOnRefreshListener(this)
-        mRefreshLayout.autoRefresh()
-        mRefreshLayout.setOnLoadMoreListener(this)
+        baseFragmentStateAdapter.add(TextFragment())
+        baseFragmentStateAdapter.add(ImageFragment())
+        baseFragmentStateAdapter.add(GifFragment())
+        baseFragmentStateAdapter.add(VideoFragment())
+        baseFragmentStateAdapter.add(LikeFragment())
+        mViewPager.adapter = baseFragmentStateAdapter
+        //        TabLayout和ViewPager的绑定
+        TabLayoutMediator(mTabLayout, mViewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "文字"
+                1 -> tab.text = "图片"
+                2 -> tab.text = "动图"
+                3 -> tab.text = "视频"
+                4 -> tab.text = "喜欢"
+            }
+        }.attach()
     }
 
-    override fun onRefresh(refreshLayout: RefreshLayout) {
-        getCheckGoodDetal(1.toString(), "text")
-        mRefreshLayout.finishRefresh()
-    }
-
-    override fun onLoadMore(refreshLayout: RefreshLayout) {
-    }
-
-    fun getCheckGoodDetal(page: String, type: String) {
-        ApiClient.mApiServer.getData(page, type)
-            .compose(RxTransformer.io2Main())
-            .compose(bindUntilEvent(ActivityEvent.DESTROY))
-            .subscribe({
-                myBaseDataBingAdapter.setNewData(it.result)
-            }, {})
-    }
 }

@@ -1,5 +1,7 @@
 package com.neihanjetpack.base.utils
 
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,8 @@ object RecyclerViewUtils {
     fun initRecyclerView(mRecyclerView: RecyclerView, adapter: BaseQuickAdapter<*, *>) {
         mRecyclerView.layoutManager = LinearLayoutManager(MyApplication.getInstance())
         mRecyclerView.adapter = adapter
-        adapter.setEmptyView(R.layout.layout_none_emptyview, mRecyclerView.parent as ViewGroup)
+        val view: View = LayoutInflater.from(MyApplication.getInstance().applicationContext)
+            .inflate(R.layout.layout_none_emptyview, mRecyclerView.parent as ViewGroup, false)
+        adapter.emptyView = view
     }
 }

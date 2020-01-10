@@ -12,6 +12,7 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
+import org.litepal.LitePal
 
 
 /**
@@ -95,6 +96,7 @@ class MyApplication : Application() {
         mMainThreadId = Thread.currentThread().id
         mMainThreadHandler = HandlerProxy(Handler())
         initLeakCanary()
+        LitePal.initialize(this)
     }
 
     /**

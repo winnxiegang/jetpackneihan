@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <variable
-            name="data"
-            type="com.neihanjetpack.data.model.NeiHanData" />
     </data>
 
     <LinearLayout
@@ -15,42 +13,23 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <LinearLayout
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:orientation="horizontal">
+            android:layout_height="50dp"
+            app:tabBackground="@color/colorWhite"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="2.5dp"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorAccent"></com.google.android.material.tabs.TabLayout>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text='@{@string/page+data.page}'
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text='@{@string/type+data.type}'
-                android:textSize="20dp" />
-        </LinearLayout>
-
-        <com.scwang.smartrefresh.layout.SmartRefreshLayout
-            android:id="@+id/mRefreshLayout"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mViewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#fff"
-                android:overScrollMode="never" />
-        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
     </LinearLayout>
 </layout>

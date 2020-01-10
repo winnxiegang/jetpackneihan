@@ -10,6 +10,7 @@ import com.neihanjetpack.BR
 import com.neihanjetpack.R
 import com.neihanjetpack.base.entity.BaseEntity
 import com.neihanjetpack.base.utils.DataBinding
+import com.neihanjetpack.base.utils.LogUtils
 import com.neihanjetpack.base.utils.RequestConstant
 
 
@@ -18,14 +19,16 @@ import com.neihanjetpack.base.utils.RequestConstant
  * @CreateDate:     2019/8/2 13:09
  * @UpdateRemark:   更新说明：
  */
-abstract class DataBindAdapter<R : BaseEntity>(
+abstract class DataBindAdapter<R : Any>(
     layout: Int,
-    private val listIdClick: MutableList<Int>? = null) : BaseQuickAdapter<R, DataBindAdapter.DataBindingAdapter>(layout) {
+    private val listIdClick: MutableList<Int>? = null
+) : BaseQuickAdapter<R, DataBindAdapter.DataBindingAdapter>(layout) {
     override fun convert(helper: DataBindingAdapter?, entity: R) {
         helper?.apply {
             entity?.apply {
                 helper.binding?.setVariable(BR.listitem, entity)
                 listIdClick?.forEach {
+                    //LogUtils.d("注册点击id为${it}")
                     helper?.addOnClickListener(it)
                 }
                 binding?.executePendingBindings()

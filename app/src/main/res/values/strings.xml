@@ -2,4 +2,7 @@
     <string name="app_name">内涵段子Jetpack</string>
     <string name="page">页数:</string>
     <string name="type">内涵类型:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
